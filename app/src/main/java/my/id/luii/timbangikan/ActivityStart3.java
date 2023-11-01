@@ -1,10 +1,8 @@
 package my.id.luii.timbangikan;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
-import android.Manifest;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.bluetooth.BluetoothAdapter;
@@ -14,7 +12,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
@@ -23,7 +20,6 @@ import android.widget.Toast;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.gun0912.tedpermission.PermissionListener;
-import com.gun0912.tedpermission.normal.TedPermission;
 
 import java.util.List;
 
@@ -32,7 +28,8 @@ import my.id.luii.timbangikan.view.DeviceRecyclerViewAdapter;
 import my.id.luii.timbangikan.view.ListInteractionListener;
 import my.id.luii.timbangikan.view.RecyclerViewProgressEmptySupport;
 
-public class ActivityStart2 extends AppCompatActivity implements ListInteractionListener<BluetoothDevice> {
+public class ActivityStart3 extends AppCompatActivity implements ListInteractionListener<BluetoothDevice> {
+
     private DeviceRecyclerViewAdapter recyclerViewAdapter;
 
     private RecyclerViewProgressEmptySupport recyclerView;
@@ -44,14 +41,13 @@ public class ActivityStart2 extends AppCompatActivity implements ListInteraction
     private ProgressDialog bondingProgressDialog;
 
     private Button btnnext;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_start2);
+        setContentView(R.layout.activity_start3);
 
         this.recyclerViewAdapter = new DeviceRecyclerViewAdapter(this);
-        this.recyclerView = findViewById(R.id.list);
+        this.recyclerView = findViewById(R.id.list2);
         this.recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         View emptyView = findViewById(R.id.empty_list);
@@ -62,11 +58,11 @@ public class ActivityStart2 extends AppCompatActivity implements ListInteraction
 
         this.recyclerView.setAdapter(recyclerViewAdapter);
 
-        btnnext = findViewById(R.id.next_pg1);
+        btnnext = findViewById(R.id.next_pg2);
 
         boolean hasBluetooth = getPackageManager().hasSystemFeature(PackageManager.FEATURE_BLUETOOTH);
         if (!hasBluetooth) {
-            AlertDialog dialog = new AlertDialog.Builder(ActivityStart2.this).create();
+            AlertDialog dialog = new AlertDialog.Builder(ActivityStart3.this).create();
             dialog.setTitle(getString(R.string.bluetooth_not_available_title));
             dialog.setMessage(getString(R.string.bluetooth_not_available_message));
             dialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
@@ -74,7 +70,7 @@ public class ActivityStart2 extends AppCompatActivity implements ListInteraction
                         public void onClick(DialogInterface dialog, int which) {
                             // Closes the dialog and terminates the activity.
                             dialog.dismiss();
-                            ActivityStart2.this.finish();
+                            ActivityStart3.this.finish();
                         }
                     });
             dialog.setCancelable(false);
@@ -84,29 +80,18 @@ public class ActivityStart2 extends AppCompatActivity implements ListInteraction
         PermissionListener permissionlistener = new PermissionListener() {
             @Override
             public void onPermissionGranted() {
-                Toast.makeText(ActivityStart2.this, "Permission Granted", Toast.LENGTH_SHORT).show();
+                Toast.makeText(ActivityStart3.this, "Permission Granted", Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void onPermissionDenied(List<String> deniedPermissions) {
-                Toast.makeText(ActivityStart2.this, "Permission Denied\n" + deniedPermissions.toString(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(ActivityStart3.this, "Permission Denied\n" + deniedPermissions.toString(), Toast.LENGTH_SHORT).show();
             }
         };
 
-        TedPermission.create()
-                .setPermissionListener(permissionlistener)
-                .setRationaleTitle("Izin dibutuhkan")
-                .setRationaleMessage("Mohon untuk trima izin untuk mengakses Lokasi dan bluetooth sebagai fungsi dari aplikasi ini")
-                .setDeniedTitle("Permission denied")
-                .setDeniedMessage(
-                        "If you reject permission,you can not use this service\n\nPlease turn on permissions at [Setting] > [Permission]")
-                .setGotoSettingButtonText("Settings")
-                .setPermissions(android.Manifest.permission.BLUETOOTH_SCAN, android.Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.BLUETOOTH_CONNECT)
-                .check();
-
         this.bluetooth = new BluetoothController(this, BluetoothAdapter.getDefaultAdapter(), recyclerViewAdapter);
 
-        fab = findViewById(R.id.fab_pg1);
+        fab = findViewById(R.id.fab_pg2);
         fab.setOnClickListener(view -> {
 
             // If the bluetooth is not enabled, turns it on.
@@ -127,7 +112,7 @@ public class ActivityStart2 extends AppCompatActivity implements ListInteraction
         });
 
         btnnext.setOnClickListener(view -> {
-            Intent intent = new Intent(this, ActivityStart3.class);
+            Intent intent = new Intent(this, Home.class);
             startActivity(intent);
         });
     }
@@ -139,7 +124,7 @@ public class ActivityStart2 extends AppCompatActivity implements ListInteraction
         //Log.d(TAG, "Item clicked : " + BluetoothController.deviceToString(device));
         if (bluetooth.isAlreadyPaired(device)) {
             //Log.d(TAG, "Device already paired!");
-            BTDevices.putString("bttimbangan", device.toString());
+            BTDevices.putString("btprinter", device.toString());
             Toast.makeText(this, R.string.device_already_paired, Toast.LENGTH_SHORT).show();
             btnnext.setVisibility(View.VISIBLE);
         } else {
@@ -195,7 +180,6 @@ public class ActivityStart2 extends AppCompatActivity implements ListInteraction
             // Cleans up state.
             this.bondingProgressDialog = null;
         }
-
     }
 
     @Override

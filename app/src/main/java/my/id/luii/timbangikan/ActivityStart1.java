@@ -13,7 +13,10 @@ public class ActivityStart1 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start1);
         Button nextButton = (Button) findViewById(R.id.next_pg1);
-        Intent intent = new Intent(this, ActivityStart2.class);
-        startActivity(intent);
+        nextButton.setOnClickListener(view -> {
+            Intent intent = new Intent(this, ActivityStart2.class);
+            startActivity(intent);
+        });
+
     }
 }

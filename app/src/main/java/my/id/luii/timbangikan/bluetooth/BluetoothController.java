@@ -28,10 +28,12 @@ import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.content.pm.PackageManager;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import android.util.Log;
 import android.widget.Toast;
+
+
 
 import java.io.Closeable;
 
@@ -80,7 +82,7 @@ public class BluetoothController implements Closeable {
      * @param context  the activity which is using this controller.
      * @param listener a callback for handling Bluetooth events.
      */
-    public BluetoothController(Activity context,BluetoothAdapter adapter, BluetoothDiscoveryDeviceListener listener) {
+    public BluetoothController(Activity context, BluetoothAdapter adapter, BluetoothDiscoveryDeviceListener listener) {
         this.context = context;
         this.bluetooth = adapter;
         this.broadcastReceiverDelegator = new BroadcastReceiverDelegator(context, listener, this);

@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/step1"
-    tools:context=".ActivityStart2">
+    android:id="@+id/step2"
+    tools:context=".ActivityStart3">
 
     <TextView
         android:id="@+id/textView"
@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="45dp"
-        android:text="Langkah 1"
+        android:text="Langkah 2"
         android:textSize="25sp"
         android:textStyle="bold"
         app:fontFamily="@font/nunito_sans_black"
@@ -25,7 +25,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="18sp"
-        android:text="Koneksikan perangkat anda ke Timbangan \ndengan Bluetooth"
+        android:text="Koneksikan perangkat anda ke Printer \nThermal dengan Bluetooth"
         android:layout_marginStart="20dp"
         android:layout_marginTop="100dp"
         tools:layout_editor_absoluteX="17dp"
@@ -60,7 +60,7 @@
         android:textAlignment="center" />
 
     <my.id.luii.timbangikan.view.RecyclerViewProgressEmptySupport
-        android:id="@+id/list"
+        android:id="@+id/list2"
         android:name="my.id.luii.timbangikan.DeviceFragment"
         android:layout_width="match_parent"
         android:layout_height="400dp"
@@ -74,7 +74,7 @@
         tools:listitem="@layout/list_device_item" />
 
     <Button
-        android:id="@+id/next_pg1"
+        android:id="@+id/next_pg2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
@@ -86,7 +86,7 @@
 
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab_pg1"
+        android:id="@+id/fab_pg2"
         app:fabSize="normal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

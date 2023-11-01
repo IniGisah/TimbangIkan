@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#E0E0E0"
+    tools:context=".TransactionInput">
+
+    <TextView
+        android:id="@+id/judul"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="45dp"
+        android:text="Input Transaksi"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:fontFamily="@font/nunito_sans_black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/subjudul"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:text="Silahkan masukkan data dibawah ini"
+        android:textSize="20sp"
+        app:fontFamily="@font/nunito_sans"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/judul" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/subjudul">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingBottom="100dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/backgroundnelayan"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:layout_margin="20dp"
+            android:elevation="20dp"
+            app:layout_constraintTop_toBottomOf="@id/subjudul"
+            app:layout_constraintStart_toStartOf="parent"
+            android:background="@drawable/rounded_rectangle">
+
+            <TextView
+                android:id="@+id/subnelayan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="20dp"
+                android:text="Nelayan"
+                android:textSize="20sp"
+                app:fontFamily="@font/nunito_sans_black"
+                app:layout_constraintStart_toStartOf="@id/backgroundnelayan"
+                app:layout_constraintTop_toTopOf="@id/backgroundnelayan"
+                app:layout_constraintEnd_toEndOf="@id/backgroundnelayan"/>
+
+            <TextView
+                android:id="@+id/subnelayan1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="20dp"
+                android:text="Pilih Nelayan"
+                android:textSize="18sp"
+                app:fontFamily="@font/nunito_sans"
+                app:layout_constraintStart_toStartOf="@id/backgroundnelayan"
+                app:layout_constraintTop_toBottomOf="@id/subnelayan" />
+
+            <Spinner
+                android:id="@+id/nelayansel"
+                android:layout_width="300dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="20dp"
+                app:layout_constraintStart_toStartOf="@id/backgroundnelayan"
+                app:layout_constraintTop_toBottomOf="@id/subnelayan1"/>
+
+            <TextView
+                android:id="@+id/subnelayan2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="20dp"
+                android:text="Tanggal"
+                android:textSize="18sp"
+                app:fontFamily="@font/nunito_sans"
+                app:layout_constraintStart_toStartOf="@id/backgroundnelayan"
+                app:layout_constraintTop_toBottomOf="@id/nelayansel" />
+
+            <Button
+                android:id="@+id/tanggalbutton"
+                android:layout_width="130dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginBottom="20dp"
+                android:backgroundTint="#E0E0E0"
+                android:textColor="@color/black"
+                android:text="Tanggal"
+                android:textAllCaps="false"
+                app:layout_constraintStart_toStartOf="@id/backgroundnelayan"
+                app:layout_constraintTop_toBottomOf="@id/subnelayan2"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/backgroundikan"
+            android:layout_width="match_parent"
+            android:layout_height="160dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:elevation="20dp"
+            app:layout_constraintTop_toBottomOf="@id/backgroundnelayan"
+            app:layout_constraintStart_toStartOf="parent"
+            android:background="@drawable/rounded_rectangle">
+
+            <TextView
+                android:id="@+id/subikan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="20dp"
+                android:text="Ikan"
+                android:textSize="20sp"
+                app:fontFamily="@font/nunito_sans_black"
+                app:layout_constraintStart_toStartOf="@id/backgroundikan"
+                app:layout_constraintTop_toTopOf="@id/backgroundikan"
+                app:layout_constraintEnd_toEndOf="@id/backgroundikan"/>
+
+            <TextView
+                android:id="@+id/subikan1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="20dp"
+                android:text="Pilih Jenis Ikan"
+                android:textSize="18sp"
+                app:fontFamily="@font/nunito_sans"
+                app:layout_constraintStart_toStartOf="@id/backgroundikan"
+                app:layout_constraintTop_toBottomOf="@id/subikan" />
+
+            <Spinner
+                android:id="@+id/ikansel"
+                android:layout_width="300dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginBottom="20dp"
+                app:layout_constraintStart_toStartOf="@id/backgroundikan"
+                app:layout_constraintTop_toBottomOf="@id/subikan1"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/backgroundberat"
+            android:layout_width="match_parent"
+            android:layout_height="275dp"
+            android:layout_margin="20dp"
+            android:elevation="20dp"
+            app:layout_constraintTop_toBottomOf="@id/backgroundikan"
+            app:layout_constraintStart_toStartOf="parent"
+            android:background="@drawable/rounded_rectangle">
+
+            <TextView
+                android:id="@+id/subberat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="20dp"
+                android:text="Harga"
+                android:textSize="20sp"
+                app:fontFamily="@font/nunito_sans_black"
+                app:layout_constraintStart_toStartOf="@id/backgroundberat"
+                app:layout_constraintTop_toTopOf="@id/backgroundberat"
+                app:layout_constraintEnd_toEndOf="@id/backgroundberat"/>
+
+            <TextView
+                android:id="@+id/subharga"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="20dp"
+                android:text="Harga Ikan : "
+                android:textSize="18sp"
+                app:fontFamily="@font/nunito_sans_black"
+                app:layout_constraintStart_toStartOf="@id/backgroundberat"
+                app:layout_constraintTop_toBottomOf="@id/subberat" />
+
+            <TextView
+                android:id="@+id/harga"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="20dp"
+                android:text="jenis ikan | Rp 0/kg"
+                android:textSize="18sp"
+                app:fontFamily="@font/nunito_sans"
+                app:layout_constraintStart_toStartOf="@id/backgroundberat"
+                app:layout_constraintTop_toBottomOf="@id/subharga" />
+
+            <TextView
+                android:id="@+id/subberat1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="20dp"
+                android:text="Berat"
+                android:textSize="18sp"
+                app:fontFamily="@font/nunito_sans"
+                app:layout_constraintStart_toStartOf="@id/backgroundberat"
+                app:layout_constraintTop_toBottomOf="@id/harga" />
+
+            <Button
+                android:id="@+id/beratbutton"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginBottom="20dp"
+                android:backgroundTint="#E0E0E0"
+                android:textColor="@color/black"
+                android:text="Timbang"
+                android:textAllCaps="false"
+                app:layout_constraintStart_toStartOf="@id/backgroundberat"
+                app:layout_constraintTop_toBottomOf="@id/subberat1"/>
+
+            <TextView
+                android:id="@+id/berat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="20dp"
+                android:text="0 kg"
+                android:textSize="18sp"
+                app:fontFamily="@font/nunito_sans"
+                app:layout_constraintStart_toEndOf="@id/beratbutton"
+                app:layout_constraintTop_toBottomOf="@id/subberat1" />
+
+            <TextView
+                android:id="@+id/subharga3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="20dp"
+                android:text="Total Harga :"
+                android:textSize="18sp"
+                app:fontFamily="@font/nunito_sans_black"
+                app:layout_constraintStart_toStartOf="@id/backgroundberat"
+                app:layout_constraintTop_toBottomOf="@id/beratbutton" />
+
+            <TextView
+                android:id="@+id/totalharga"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="20dp"
+                android:text="Rp 0"
+                android:textSize="18sp"
+                app:fontFamily="@font/nunito_sans"
+                app:layout_constraintStart_toEndOf="@id/subharga3"
+                app:layout_constraintTop_toBottomOf="@id/beratbutton" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/backgroundberat">
+
+            <com.google.android.material.switchmaterial.SwitchMaterial
+                android:id="@+id/printtoggle"
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="30dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:checked="true"
+                app:fontFamily="@font/nunito_sans"
+                android:textSize="18sp"
+                android:text="Print struk"
+                />
+
+            <Button
+                android:id="@+id/simpan"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginBottom="20dp"
+                android:backgroundTint="#006400"
+                android:text="Simpan"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/printtoggle"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
