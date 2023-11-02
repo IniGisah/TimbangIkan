@@ -55,6 +55,8 @@ public class WeightInput extends AppCompatActivity implements my.id.luii.timbang
 
     @Override
     public void dataReceiveDone(float datakg) {
+        Button buttondone = findViewById(R.id.buttondone);
+
         clientThread.cancel();
         clientThread.interrupt();
 
@@ -63,14 +65,19 @@ public class WeightInput extends AppCompatActivity implements my.id.luii.timbang
         IdKambing.putFloat("berat", datakg);
         IdKambing.commit();
 
-        Intent intent = new Intent(WeightInput.this, Upload.class);
-        startActivity(intent);
+        buttondone.setVisibility(View.VISIBLE);
+        Intent intent = new Intent(WeightInput.this,TransactionInput.class);
+        intent.putExtra("result", String.valueOf(datakg));
 
+        buttondone.setOnClickListener(v -> {
+            setResult(RESULT_OK, intent);
+            finish();
+        });
     }
 
     @Override
     public void needReconnect(boolean hasil) {
-        Button buttonretry = (Button) findViewById(R.id.retrybutton_scan2);
+        Button buttonretry = (Button) findViewById(R.id.buttonretry);
 
         TextView textView = (TextView) findViewById(R.id.kambingkg);
         SharedPreferences sharedPreferences = getSharedPreferences("IDKambing",MODE_PRIVATE);

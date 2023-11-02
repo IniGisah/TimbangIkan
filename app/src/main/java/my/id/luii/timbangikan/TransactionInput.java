@@ -1,8 +1,18 @@
 package my.id.luii.timbangikan;
 
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.app.DatePickerDialog;
+import android.bluetooth.BluetoothDevice;
+import android.bluetooth.BluetoothManager;
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -15,6 +25,15 @@ import android.widget.Toast;
 
 import java.util.Calendar;
 
+import com.dantsu.escposprinter.EscPosPrinter;
+import com.dantsu.escposprinter.connection.DeviceConnection;
+import com.dantsu.escposprinter.connection.bluetooth.BluetoothConnection;
+import com.dantsu.escposprinter.connection.bluetooth.BluetoothPrintersConnections;
+import com.dantsu.escposprinter.exceptions.EscPosBarcodeException;
+import com.dantsu.escposprinter.exceptions.EscPosConnectionException;
+import com.dantsu.escposprinter.exceptions.EscPosEncodingException;
+import com.dantsu.escposprinter.exceptions.EscPosParserException;
+
 public class TransactionInput extends AppCompatActivity {
 
     String[] nelayan = { "Hasanudin - 3604300806810001", "Burhan - 3604302104730002",
@@ -26,6 +45,12 @@ public class TransactionInput extends AppCompatActivity {
 
     Button dateButton;
 
+    Integer berat, hargaikanint, totalharga;
+
+    String nelayanvalue, ikanvalue;
+
+    EscPosPrinter printer;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,11 +59,69 @@ public class TransactionInput extends AppCompatActivity {
         Spinner nelayanspin = findViewById(R.id.nelayansel);
         Spinner ikanspin = findViewById(R.id.ikansel);
         TextView hargaikan = findViewById(R.id.harga);
+        Button beratcount = findViewById(R.id.beratbutton);
+        TextView berattext = findViewById(R.id.berat);
+
+        Button simpan = findViewById(R.id.simpan);
+
+        SharedPreferences sharedPreferences = getSharedPreferences("BTDevices",MODE_PRIVATE);
+        String btprinter = sharedPreferences.getString("btprinter", "");
+
+        BluetoothManager bluetoothManager = (BluetoothManager)getSystemService(Context.BLUETOOTH_SERVICE);
+        BluetoothDevice bluetoothDevice = bluetoothManager.getAdapter().getRemoteDevice(btprinter);
+
+        BluetoothConnection btprinterconnect = new BluetoothConnection(bluetoothDevice);
+
+        try {
+            printer = new EscPosPrinter(btprinterconnect, 203, 48f, 32);
+        } catch (EscPosConnectionException e) {
+            throw new RuntimeException(e);
+        }
+
+        ActivityResultLauncher<Intent> beratGetLauncher = registerForActivityResult(
+                new ActivityResultContracts.StartActivityForResult(),
+                result -> {
+                    if (result.getResultCode() == Activity.RESULT_OK) {
+                        Intent data = result.getData();
+                        berattext.setText(data.getStringExtra("result"));
+                        berat = Integer.parseInt(data.getStringExtra("result"));
+                        initPriceCount();
+                    }
+                });
+
+        beratcount.setOnClickListener(v -> {
+            Intent intent =  new Intent(TransactionInput.this,WeightInput.class);
+            //startActivityForResult(intent, 1);
+            beratGetLauncher.launch(intent);
+        });
+
+        simpan.setOnClickListener(v -> {
+            try {
+                printer.printFormattedText(
+                        "[C]<u><font size='big'>TimbangIkan</font></u>\n" +
+                        "[L]\n" +
+                        "[C]================================\n" +
+                        "[L]<font size='tall'>Nelayan :</font>\n" +
+                        "[L]" + nelayanvalue + "\n" +
+                        "[C]--------------------------------\n" +
+                        "[L]<b>Jenis Ikan</b>[R]Rp " + hargaikanint +"\n" +
+                        "[L]  +" + ikanvalue +"\n" +
+                        "[L]<b>Berat</b>[R]" + berat +"kg\n" +
+                        "[C]--------------------------------\n" +
+                        "[R]TOTAL HARGA :[R]"+ totalharga +"\n" +
+                        "[L]\n" +
+                        "[C]================================\n" +
+                        "[L]\n"
+                );
+            } catch (EscPosConnectionException | EscPosParserException | EscPosEncodingException | EscPosBarcodeException e) {
+                throw new RuntimeException(e);
+            }
+        });
 
         nelayanspin.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                String nelayanvalue = parent.getItemAtPosition(position).toString();
+                nelayanvalue = parent.getItemAtPosition(position).toString();
                 Toast.makeText(getApplicationContext(), "Nelayan : " + nelayanvalue, Toast.LENGTH_SHORT).show();
             }
 
@@ -50,7 +133,8 @@ public class TransactionInput extends AppCompatActivity {
         ikanspin.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                String ikanvalue = parent.getItemAtPosition(position).toString();
+                ikanvalue = parent.getItemAtPosition(position).toString();
+                hargaikanint = hargaikandata[position];
                 hargaikan.setText(ikanvalue + " | Rp " + hargaikandata[position] + " /kg");
             }
 
@@ -82,5 +166,13 @@ public class TransactionInput extends AppCompatActivity {
                     year, month, day);
             datePickerDialog.show();
         });
+    }
+
+    private void initPriceCount() {
+        TextView hargatext = findViewById(R.id.totalharga);
+        totalharga = hargaikanint * berat;
+        String hargastr = totalharga.toString();
+        hargatext.setText("Rp " + hargastr);
+
     }
 }
