@@ -237,7 +237,7 @@ public class BluetoothController implements Closeable {
                 case BluetoothAdapter.STATE_OFF:
                     // Bluetooth is OFF.
                     Log.d(TAG, "Error while turning Bluetooth on.");
-                    Toast.makeText(context, "Error while turning Bluetooth on.", Toast.LENGTH_SHORT);
+                    Toast.makeText(context, "Error while turning Bluetooth on.", Toast.LENGTH_SHORT).show();
                     // Resets the flag since this discovery has been performed.
                     bluetoothDiscoveryScheduled = false;
                     break;

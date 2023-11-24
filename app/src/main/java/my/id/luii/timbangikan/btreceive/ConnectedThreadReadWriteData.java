@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.ArrayList;
 
 public class ConnectedThreadReadWriteData extends Thread {
@@ -23,7 +24,7 @@ public class ConnectedThreadReadWriteData extends Thread {
     // BT
     private final BluetoothSocket mSocket;
     private final InputStream mIs;
-    //private final OutputStream mOs;
+    private final OutputStream mOs;
 
     float kgresult;
 
@@ -42,7 +43,7 @@ public class ConnectedThreadReadWriteData extends Thread {
         this.console = console;
         this.dataToSend = dataToSend;
         InputStream tmpIs = null;
-       // OutputStream tmpOs = null;
+        OutputStream tmpOs = null;
 
         try {
             tmpIs = mSocket.getInputStream();
@@ -50,7 +51,7 @@ public class ConnectedThreadReadWriteData extends Thread {
         } catch (IOException e) {
             Log.v("Connected:", e.toString());
         }
-        //mOs = tmpOs;
+        mOs = tmpOs;
         mIs = tmpIs;
     }
 
@@ -67,7 +68,7 @@ public class ConnectedThreadReadWriteData extends Thread {
         // communicate with it.
         notify.connectionSuccessful();
 
-        consoleOut("Waiting for incoming data.......\n");
+        //consoleOut("Waiting for incoming data.......\n");
 
         int length;
         float before;
@@ -80,6 +81,7 @@ public class ConnectedThreadReadWriteData extends Thread {
                 String received = null;
                 int readBytes = 0;
                 length = mIs.read(inBuffer);
+                length = mIs.read(inBuffer);
                 while (readBytes != length) {
                     received = new String(inBuffer, 0, length);
                     readBytes++;
@@ -90,22 +92,14 @@ public class ConnectedThreadReadWriteData extends Thread {
                 } catch (InterruptedException e) {
                 }
                 consoleOut(received + " kg");
-                float datakg = Float.parseFloat(received.replaceAll("[\\D]" , "" ) );
-                Log.v("datakg", datakg + " kg");
-                if (datakg > 100) {
-                    before = datakg;
-                    if (before == datakg){
-                        datareceive.add(datakg);//addX(10, datareceive, datakg);
-                    }
-                }
-                if (datareceive.size() == 10){
-                    Log.v("msgdata", datakg + "Done receive");
-                    donereceive(datareceive);
-                    cancel();
-                }
+                //float datakg = Float.parseFloat(received.replaceAll("[\\D]" , "" ) );
+                Log.v("datakg", received + " kg");
+                Log.v("msgdata", received + "Done receive");
+                notify.dataReceiveDone(received);
+
             }
         } catch (IOException e) {
-            consoleOut("Error during data transfer. Connection has been lost!");
+            //consoleOut("Error during data transfer. Connection has been lost!");
             Log.v("Thread Debug:", "inside catch receive data error, call needreconnect rwthread");
             notify.needReconnect(true);
         }
@@ -117,7 +111,7 @@ public class ConnectedThreadReadWriteData extends Thread {
             datatot = datatot + dataarr.get(i);
         }
         kgresult = datatot / dataarr.size();
-        notify.dataReceiveDone(kgresult);
+        //notify.dataReceiveDone(kgresult);
         cancel();
     }
 
@@ -125,7 +119,6 @@ public class ConnectedThreadReadWriteData extends Thread {
      * Send stream to device.
      */
 
-    /*
     public void send(String dataToSend) {
         try {
             if (dataToSend.length() > 0) {
@@ -136,7 +129,7 @@ public class ConnectedThreadReadWriteData extends Thread {
         } catch (IOException ee) {
             closeOutputStream();
         }
-    }*/
+    }
 
     /**
      * Shows text inside console- textView
@@ -155,7 +148,6 @@ public class ConnectedThreadReadWriteData extends Thread {
         }
     }
 
-    /*
     private void closeOutputStream() {
         try {
             mOs.close();
@@ -163,8 +155,6 @@ public class ConnectedThreadReadWriteData extends Thread {
             consoleOut("Could not close output stream:" + e.toString() + "\n");
         }
     }
-
-     */
 
     public void cancel() {
         //closeOutputStream();

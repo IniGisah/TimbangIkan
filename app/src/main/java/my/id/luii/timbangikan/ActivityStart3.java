@@ -125,6 +125,7 @@ public class ActivityStart3 extends AppCompatActivity implements ListInteraction
         if (bluetooth.isAlreadyPaired(device)) {
             //Log.d(TAG, "Device already paired!");
             BTDevices.putString("btprinter", device.toString());
+            BTDevices.apply();
             Toast.makeText(this, R.string.device_already_paired, Toast.LENGTH_SHORT).show();
             btnnext.setVisibility(View.VISIBLE);
         } else {
@@ -169,6 +170,7 @@ public class ActivityStart3 extends AppCompatActivity implements ListInteraction
                 message = "Gagal mengkoneksikan dengan " + deviceName + "!";
             } else {
                 BTDevices.putString("bttimbangan", device.toString());
+                BTDevices.apply();
                 btnnext.setVisibility(View.VISIBLE);
                 message = "Sukses mengkoneksikan dengan " + deviceName + "!";
             }

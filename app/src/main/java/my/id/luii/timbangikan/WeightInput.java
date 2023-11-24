@@ -15,6 +15,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import my.id.luii.timbangikan.btreceive.ConnectedThreadReadWriteData;
+
 public class WeightInput extends AppCompatActivity implements my.id.luii.timbangikan.btreceive.Notify {
     private Handler h;
 
@@ -29,14 +31,20 @@ public class WeightInput extends AppCompatActivity implements my.id.luii.timbang
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_weight_input);
 
+        Intent intent = getIntent();
+        String hargaikan = intent.getStringExtra("hargaikan");
+
         TextView textView = findViewById(R.id.kambingkg);
 
-        SharedPreferences sharedPreferences = getSharedPreferences("IDKambing",MODE_PRIVATE);
+        SharedPreferences sharedPreferences = getSharedPreferences("BTDevices",MODE_PRIVATE);
         String jsonbt = sharedPreferences.getString("bttimbangan", "");
+        Log.v("DEBUGBT", jsonbt);
 
         myBluetooth = BluetoothAdapter.getDefaultAdapter();
 
         BluetoothDevice bluetoothDevice = myBluetooth.getRemoteDevice(jsonbt);
+
+        //connectedThreadReadWriteData.send(hargaikan);
 
         startscan(bluetoothDevice, textView);
     }
@@ -54,34 +62,38 @@ public class WeightInput extends AppCompatActivity implements my.id.luii.timbang
     }
 
     @Override
-    public void dataReceiveDone(float datakg) {
+    public void dataReceiveDone(String datakg) {
         Button buttondone = findViewById(R.id.buttondone);
 
-        clientThread.cancel();
+        //clientThread.cancel();
         clientThread.interrupt();
 
         SharedPreferences sharedPreferences = getSharedPreferences("IDKambing",MODE_PRIVATE);
         SharedPreferences.Editor IdKambing = sharedPreferences.edit();
-        IdKambing.putFloat("berat", datakg);
-        IdKambing.commit();
+        IdKambing.putString("berat", datakg);
+        IdKambing.apply();
 
-        buttondone.setVisibility(View.VISIBLE);
-        Intent intent = new Intent(WeightInput.this,TransactionInput.class);
-        intent.putExtra("result", String.valueOf(datakg));
+        runOnUiThread(() -> {
+            buttondone.setVisibility(View.VISIBLE);
 
-        buttondone.setOnClickListener(v -> {
-            setResult(RESULT_OK, intent);
-            finish();
+            Intent intent = new Intent(WeightInput.this,TransactionInput.class);
+            intent.putExtra("result", String.valueOf(datakg));
+
+            buttondone.setOnClickListener(v -> {
+                clientThread.cancel();
+                setResult(RESULT_OK, intent);
+                finish();
+            });
         });
     }
 
     @Override
     public void needReconnect(boolean hasil) {
-        Button buttonretry = (Button) findViewById(R.id.buttonretry);
+        Button buttonretry = findViewById(R.id.buttonretry);
 
-        TextView textView = (TextView) findViewById(R.id.kambingkg);
-        SharedPreferences sharedPreferences = getSharedPreferences("IDKambing",MODE_PRIVATE);
-        String jsonbt = sharedPreferences.getString("btdevice", "");
+        TextView textView = findViewById(R.id.kambingkg);
+        SharedPreferences sharedPreferences = getSharedPreferences("BTDevices",MODE_PRIVATE);
+        String jsonbt = sharedPreferences.getString("bttimbangan", "");
 
         BluetoothManager bluetoothManager = (BluetoothManager)getSystemService(Context.BLUETOOTH_SERVICE);
         BluetoothDevice bluetoothDevice = bluetoothManager.getAdapter().getRemoteDevice(jsonbt);

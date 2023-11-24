@@ -72,7 +72,7 @@ public class ClientThread extends Thread {
                 BluetoothAdapter.getDefaultAdapter().cancelDiscovery();
                 Log.v("Client:", "Connecting.....");
                 mSocket.connect();
-                consoleOut("Client: Connection successful!\n");
+                //consoleOut("Client: Connection successful!\n");
 
                 // This reads incoming data from the connected device...
                 ct = new ConnectedThreadReadWriteData(notify, mSocket, h, console, dataToSend);
@@ -80,7 +80,7 @@ public class ClientThread extends Thread {
 
             } catch (IOException e) {
                 Log.v("Client: Thread:", e.toString());
-                consoleOut("Connection failed! Trying to reconnect... Cause:" + e.toString() + "\n");
+                //consoleOut("Connection failed! Trying to reconnect... Cause:" + e.toString() + "\n");
                 Log.v("Thread Debug:", "inside connection error, call needreconnect cthread");
                 notify.needReconnect(true);
             }
@@ -106,7 +106,7 @@ public class ClientThread extends Thread {
             mSocket.close();
             if (ct != null)
                 ct.cancel();
-            consoleOut("Disconected!\n");
+            //consoleOut("Disconected!\n");
         } catch (IOException e) {
             Log.v("Client: thread:", e.toString());
         }

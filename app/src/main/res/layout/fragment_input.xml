@@ -1,0 +1,393 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".FragmentInput">
+
+    <TextView
+        android:id="@+id/timbang_ikan"
+        android:layout_width="143dp"
+        android:layout_height="30dp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="36dp"
+        android:layout_marginStart="30dp"
+        android:text="Timbang Ikan"
+        android:gravity="top"
+        android:textSize="20sp"
+        android:textColor="#053742"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <TextView
+        android:id="@+id/timbang_hasil"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="30dp"
+        android:text="Timbang hasil tangkapan!"
+        android:gravity="top"
+        android:textSize="15sp"
+        android:textColor="#053742"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/timbang_ikan"
+        />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/inputbg"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/timbang_hasil"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:background="@drawable/rounded_rectangle"
+        android:backgroundTint="#F9FEFD">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/inputumumbg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            app:layout_constraintStart_toStartOf="@id/inputbg"
+            app:layout_constraintTop_toTopOf="@id/inputbg"
+            android:background="@drawable/rounded_rectangle">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/infoumumbg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="@id/inputumumbg"
+                app:layout_constraintTop_toTopOf="@id/inputumumbg"
+                android:background="@drawable/rounded_rectangle"
+                >
+
+                <TextView
+                    android:id="@+id/infoumum"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="25dp"
+                    android:text="Informasi Umum"
+                    android:gravity="top"
+                    android:textSize="16sp"
+                    android:textColor="#053742"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="@id/infoumumbg"
+                    app:layout_constraintTop_toTopOf="@id/infoumumbg"
+                    />
+
+                <TextView
+                    android:id="@+id/infoumum2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginBottom="10dp"
+                    android:gravity="top"
+                    android:text="Isi data kelengkapan"
+                    android:textColor="#053742"
+                    android:textSize="15sp"
+                    app:layout_constraintBottom_toBottomOf="@id/infoumumbg"
+                    app:layout_constraintStart_toStartOf="@id/infoumumbg"
+                    app:layout_constraintTop_toBottomOf="@id/infoumum" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/pilihnelayan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="15dp"
+                android:layout_marginStart="25dp"
+                android:text="Pilih Nelayan"
+                android:gravity="top"
+                android:textSize="16sp"
+                android:textColor="#053742"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@id/infoumumbg"
+                app:layout_constraintTop_toBottomOf="@id/infoumumbg"
+                />
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/pilihnelayanbg"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="21dp"
+                android:layout_marginEnd="21dp"
+                app:layout_constraintStart_toStartOf="@id/inputumumbg"
+                app:layout_constraintTop_toBottomOf="@id/pilihnelayan"
+                android:foreground="?selectableItemBackground"
+                app:strokeWidth="2dp"
+                app:strokeColor="#E4E4E4">
+
+                <TextView
+                    android:id="@+id/pilihnelayan2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="5dp"
+                    android:text="Klik untuk memilih nelayan"
+                    android:gravity="top"
+                    android:textSize="15sp"
+                    android:textColor="#979797"
+                    app:layout_constraintStart_toStartOf="@id/infoumumbg"
+                    app:layout_constraintTop_toBottomOf="@id/infoumum"
+                    />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/baseline_arrow_forward_24"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginStart="270dp"
+                    app:tint="#979797" />
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                android:id="@+id/pilihikan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="25dp"
+                android:text="Jenis Ikan"
+                android:gravity="top"
+                android:textSize="16sp"
+                android:textColor="#053742"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@id/infoumumbg"
+                app:layout_constraintTop_toBottomOf="@id/pilihnelayanbg"
+                />
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="21dp"
+                android:layout_marginEnd="21dp"
+                android:layout_marginBottom="25dp"
+                app:layout_constraintStart_toStartOf="@id/inputumumbg"
+                app:layout_constraintTop_toBottomOf="@id/pilihikan"
+                app:layout_constraintBottom_toBottomOf="@id/inputumumbg"
+                android:foreground="?selectableItemBackground"
+                app:strokeWidth="2dp"
+                app:strokeColor="#E4E4E4">
+
+                <TextView
+                    android:id="@+id/pilihikan2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="5dp"
+                    android:text="Klik untuk memilih jenis Ikan"
+                    android:gravity="top"
+                    android:textSize="15sp"
+                    android:textColor="#979797"
+                    app:layout_constraintStart_toStartOf="@id/infoumumbg"
+                    app:layout_constraintTop_toBottomOf="@id/infoumum"
+                    />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/baseline_arrow_forward_24"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginStart="270dp"
+                    app:tint="#979797" />
+
+            </com.google.android.material.card.MaterialCardView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/inputberatbg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            app:layout_constraintStart_toStartOf="@id/inputbg"
+            app:layout_constraintTop_toBottomOf="@id/inputumumbg"
+            android:background="@drawable/rounded_rectangle">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/beratbg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="@id/inputberatbg"
+                app:layout_constraintTop_toTopOf="@id/inputberatbg"
+                android:background="@drawable/rounded_rectangle"
+                >
+
+                <TextView
+                    android:id="@+id/inputberat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="25dp"
+                    android:text="Informasi Umum"
+                    android:gravity="top"
+                    android:textSize="16sp"
+                    android:textColor="#053742"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="@id/beratbg"
+                    app:layout_constraintTop_toTopOf="@id/beratbg"
+                    />
+
+                <TextView
+                    android:id="@+id/inputberat2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginBottom="10dp"
+                    android:gravity="top"
+                    android:text="Isi data kelengkapan"
+                    android:textColor="#053742"
+                    android:textSize="15sp"
+                    app:layout_constraintBottom_toBottomOf="@id/inputberat"
+                    app:layout_constraintStart_toStartOf="@id/beratbg"
+                    app:layout_constraintTop_toBottomOf="@id/beratbg" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/pilihnelayan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="15dp"
+                android:layout_marginStart="25dp"
+                android:text="Pilih Nelayan"
+                android:gravity="top"
+                android:textSize="16sp"
+                android:textColor="#053742"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@id/infoumumbg"
+                app:layout_constraintTop_toBottomOf="@id/infoumumbg"
+                />
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/pilihnelayanbg"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="21dp"
+                android:layout_marginEnd="21dp"
+                app:layout_constraintStart_toStartOf="@id/inputumumbg"
+                app:layout_constraintTop_toBottomOf="@id/pilihnelayan"
+                android:foreground="?selectableItemBackground"
+                app:strokeWidth="2dp"
+                app:strokeColor="#E4E4E4">
+
+                <TextView
+                    android:id="@+id/pilihnelayan2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="5dp"
+                    android:text="Klik untuk memilih nelayan"
+                    android:gravity="top"
+                    android:textSize="15sp"
+                    android:textColor="#979797"
+                    app:layout_constraintStart_toStartOf="@id/infoumumbg"
+                    app:layout_constraintTop_toBottomOf="@id/infoumum"
+                    />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/baseline_arrow_forward_24"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginStart="270dp"
+                    app:tint="#979797" />
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                android:id="@+id/pilihikan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="25dp"
+                android:text="Jenis Ikan"
+                android:gravity="top"
+                android:textSize="16sp"
+                android:textColor="#053742"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@id/infoumumbg"
+                app:layout_constraintTop_toBottomOf="@id/pilihnelayanbg"
+                />
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="21dp"
+                android:layout_marginEnd="21dp"
+                android:layout_marginBottom="25dp"
+                app:layout_constraintStart_toStartOf="@id/inputumumbg"
+                app:layout_constraintTop_toBottomOf="@id/pilihikan"
+                app:layout_constraintBottom_toBottomOf="@id/inputumumbg"
+                android:foreground="?selectableItemBackground"
+                app:strokeWidth="2dp"
+                app:strokeColor="#E4E4E4">
+
+                <TextView
+                    android:id="@+id/pilihikan2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="5dp"
+                    android:text="Klik untuk memilih jenis Ikan"
+                    android:gravity="top"
+                    android:textSize="15sp"
+                    android:textColor="#979797"
+                    app:layout_constraintStart_toStartOf="@id/infoumumbg"
+                    app:layout_constraintTop_toBottomOf="@id/infoumum"
+                    />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/baseline_arrow_forward_24"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginStart="270dp"
+                    app:tint="#979797" />
+
+            </com.google.android.material.card.MaterialCardView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

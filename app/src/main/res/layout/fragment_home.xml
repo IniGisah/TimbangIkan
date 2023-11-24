@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FragmentHome">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/bguser"
+        android:layout_width="match_parent"
+        android:layout_height="137dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="65dp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/homepopuptop"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageView
+            android:layout_width="53dp"
+            android:layout_height="53dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="14dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="16dp"
+            android:clipToOutline="true"
+            app:layout_constraintStart_toStartOf="@id/bguser"
+            app:layout_constraintTop_toTopOf="@id/bguser"
+            android:background="@drawable/homeusericon"/>
+
+        <TextView
+            android:id="@+id/paragraph"
+            android:layout_width="114dp"
+            android:layout_height="19dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="78dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="18dp"
+            android:text="Selamat Datang"
+            android:textSize="14sp"
+            android:letterSpacing="0.03"
+            android:textColor="#0B437E"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@id/bguser"
+            app:layout_constraintTop_toTopOf="@id/bguser"
+            android:gravity="top"/>
+
+        <TextView
+            android:id="@+id/username"
+            android:layout_width="45dp"
+            android:layout_height="19dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="78dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="45dp"
+            android:text="Admin"
+            android:textSize="14sp"
+            android:letterSpacing="0.03"
+            android:textColor="#0B437E"
+            app:layout_constraintStart_toStartOf="@id/bguser"
+            app:layout_constraintTop_toTopOf="@id/bguser"
+            android:gravity="top"/>
+
+        <ImageView
+            android:id="@+id/logoutbutton"
+            android:layout_width="26dp"
+            android:layout_height="33dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginEnd="20dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="26dp"
+            app:layout_constraintEnd_toEndOf="@id/bguser"
+            app:layout_constraintTop_toTopOf="@id/bguser"
+            android:background="@drawable/logout"/>
+
+        <TextView
+            android:id="@+id/koneksikan_"
+            android:layout_width="163dp"
+            android:layout_height="18dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="18dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="95dp"
+            android:text="Koneksikan bluetooth"
+            android:textSize="15sp"
+            android:letterSpacing="0.03"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@id/bguser"
+            app:layout_constraintTop_toTopOf="@id/bguser"
+            android:gravity="top"
+            />
+
+        <Button
+            android:layout_width="105dp"
+            android:layout_height="45dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginEnd="30dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="80dp"
+            android:text="Cari"
+            android:drawableLeft="@drawable/ic_bluetooth_black_24dp"
+            android:drawableTint="@color/white"
+            android:drawablePadding="-15dp"
+            app:layout_constraintEnd_toEndOf="@id/bguser"
+            app:layout_constraintTop_toTopOf="@id/bguser"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/beranda"
+        android:layout_width="89dp"
+        android:layout_height="30dp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="235dp"
+        android:layout_marginStart="20dp"
+        android:text="Beranda"
+        android:textSize="20sp"
+        android:letterSpacing="0.03"
+        android:textColor="#053742"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:gravity="top"
+        />
+
+    <TextView
+        android:id="@+id/comingsoon"
+        android:layout_width="150dp"
+        android:layout_height="30dp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="20dp"
+        android:text="Coming Soon!"
+        android:textSize="20sp"
+        android:letterSpacing="0.03"
+        android:textColor="#053742"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

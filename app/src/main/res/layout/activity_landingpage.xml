@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LandingPage">
+
+    <ImageView
+        android:id="@+id/bg"
+        android:layout_width="459dp"
+        android:layout_height="418dp"
+        android:src="@drawable/nelayan_2"
+        android:alpha="0.8f"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/sirip_ikan"
+        android:layout_width="198dp"
+        android:layout_height="55dp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="157dp"
+        android:text="@string/sirip_ikan"
+        android:textSize="38sp"
+        android:letterSpacing="0.03"
+        android:textColor="#0B437E"
+        android:gravity="center_horizontal|top"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
+    <TextView
+        android:id="@+id/sirip_ikan_"
+        android:layout_width="287dp"
+        android:layout_height="27dp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true"
+        android:text="@string/sirip_ikan_"
+        android:gravity="center_horizontal|top"
+        android:textSize="20sp"
+        android:letterSpacing="0.03"
+        android:textColor="#85A1BF"
+        app:layout_constraintTop_toBottomOf="@id/sirip_ikan"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/emailinputlayout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginTop="30dp"
+        android:hint="Email"
+        app:boxBackgroundColor="#F9F9FB"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/sirip_ikan_">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/emailinput"
+            android:gravity="center_horizontal|top"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/passinputlayout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginTop="20dp"
+        android:hint="Password"
+        app:boxBackgroundColor="#F9F9FB"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/emailinputlayout">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/passinput"
+            android:gravity="center_horizontal|top"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/button_login"
+        android:layout_width="147dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="45dp"
+        app:layout_constraintTop_toBottomOf="@id/passinputlayout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="LOG IN"
+        android:backgroundTint="#0B437E"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

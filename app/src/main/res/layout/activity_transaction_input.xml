@@ -39,14 +39,14 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical"
             android:paddingBottom="100dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/backgroundnelayan"
             android:layout_width="match_parent"
-            android:layout_height="250dp"
+            android:layout_height="235dp"
             android:layout_margin="20dp"
             android:elevation="20dp"
             app:layout_constraintTop_toBottomOf="@id/subjudul"
@@ -74,7 +74,7 @@
                 android:layout_marginStart="20dp"
                 android:text="Pilih Nelayan"
                 android:textSize="18sp"
-                app:fontFamily="@font/nunito_sans"
+                app:fontFamily="@font/nunito_sans_black"
                 app:layout_constraintStart_toStartOf="@id/backgroundnelayan"
                 app:layout_constraintTop_toBottomOf="@id/subnelayan" />
 
@@ -95,23 +95,23 @@
                 android:layout_marginStart="20dp"
                 android:text="Tanggal"
                 android:textSize="18sp"
-                app:fontFamily="@font/nunito_sans"
+                app:fontFamily="@font/nunito_sans_black"
                 app:layout_constraintStart_toStartOf="@id/backgroundnelayan"
                 app:layout_constraintTop_toBottomOf="@id/nelayansel" />
 
-            <Button
-                android:id="@+id/tanggalbutton"
-                android:layout_width="130dp"
-                android:layout_height="50dp"
-                android:layout_marginTop="10dp"
+            <TextView
+                android:id="@+id/tgl"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
                 android:layout_marginStart="20dp"
-                android:layout_marginBottom="20dp"
-                android:backgroundTint="#E0E0E0"
-                android:textColor="@color/black"
-                android:text="Tanggal"
-                android:textAllCaps="false"
+                android:text="tanggal now"
+                android:textSize="18sp"
+                app:fontFamily="@font/nunito_sans"
                 app:layout_constraintStart_toStartOf="@id/backgroundnelayan"
-                app:layout_constraintTop_toBottomOf="@id/subnelayan2"/>
+                app:layout_constraintTop_toBottomOf="@id/subnelayan2" />
+
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -147,7 +147,7 @@
                 android:layout_marginStart="20dp"
                 android:text="Pilih Jenis Ikan"
                 android:textSize="18sp"
-                app:fontFamily="@font/nunito_sans"
+                app:fontFamily="@font/nunito_sans_black"
                 app:layout_constraintStart_toStartOf="@id/backgroundikan"
                 app:layout_constraintTop_toBottomOf="@id/subikan" />
 
@@ -216,9 +216,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:layout_marginStart="20dp"
-                android:text="Berat"
+                android:text="Berat :"
                 android:textSize="18sp"
-                app:fontFamily="@font/nunito_sans"
+                app:fontFamily="@font/nunito_sans_black"
                 app:layout_constraintStart_toStartOf="@id/backgroundberat"
                 app:layout_constraintTop_toBottomOf="@id/harga" />
 

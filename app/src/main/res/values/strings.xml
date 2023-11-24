@@ -1,9 +1,13 @@
 <resources>
     <string name="app_name">TimbangIkan</string>
-    <string name="enabling_bluetooth">Menghidupkan Bluetooth...</string>
-    <string name="device_discovery_started">Mencari perangkat bluetooth...</string>
+    <string name="enabling_bluetooth">Menghidupkan Bluetooth…</string>
+    <string name="device_discovery_started">Mencari perangkat bluetooth…</string>
     <string name="device_discovery_stopped">Pencarian perangkat dihentikan.</string>
     <string name="device_already_paired">Perangkat ini sudah disandingkan dan terpilih</string>
     <string name="bluetooth_not_available_title">Bluetooth tidak tersedia</string>
     <string name="bluetooth_not_available_message">Tidak ada fitur Bluetooth di perangkat ini. Mohon untuk mengganti perangkat anda dengan fitur Bluetooth</string>
+    <string name="sirip_ikan">Sirip Ikan</string>
+    <string name="sirip_ikan_">Sirip Ikan teman nelayan</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
