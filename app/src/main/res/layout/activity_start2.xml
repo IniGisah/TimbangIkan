@@ -59,7 +59,7 @@
         android:text="Tidak ada perangkat. \nTekan tombol refresh dibawah"
         android:textAlignment="center" />
 
-    <my.id.luii.timbangikan.view.RecyclerViewProgressEmptySupport
+    <my.id.luii.timbangikan.btviewscan.RecyclerViewProgressEmptySupport
         android:id="@+id/list"
         android:name="my.id.luii.timbangikan.DeviceFragment"
         android:layout_width="match_parent"

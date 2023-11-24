@@ -44,7 +44,7 @@ public class LandingPage extends AppCompatActivity {
         final Dialog loadingdialog = new Dialog(LandingPage.this);
 
         loginBtn.setOnClickListener(v -> {
-            loadingdialog.startLoadingdialog();
+            loadingdialog.startLoadingdialog(R.layout.loading);
             ExecutorService executor = Executors.newSingleThreadExecutor();
             Handler handler = new Handler(Looper.getMainLooper());
 

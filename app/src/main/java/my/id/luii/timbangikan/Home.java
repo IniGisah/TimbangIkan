@@ -9,11 +9,14 @@ import android.os.Bundle;
 import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.card.MaterialCardView;
+
+import my.id.luii.timbangikan.fragmentdir.FragmentAkun;
+import my.id.luii.timbangikan.fragmentdir.FragmentHome;
+import my.id.luii.timbangikan.fragmentdir.FragmentIkan;
+import my.id.luii.timbangikan.fragmentdir.FragmentInput;
+import my.id.luii.timbangikan.fragmentdir.FragmentTransaksi;
 
 public class Home extends AppCompatActivity implements BottomNavigationView.OnItemSelectedListener {
-
-    private MaterialCardView mtcard, settingcard;
 
     BottomNavigationView btnavbar;
 
@@ -38,47 +41,45 @@ public class Home extends AppCompatActivity implements BottomNavigationView.OnIt
         }
     }
 
-    FragmentHome fragmentHome = new FragmentHome();
-    FragmentIkan fragmentIkan = new FragmentIkan();
-    FragmentInput fragmentInput = new FragmentInput();
+    final FragmentHome fragmentHome = new FragmentHome();
+    final FragmentIkan fragmentIkan = new FragmentIkan();
+    final FragmentInput fragmentInput = new FragmentInput();
+    final FragmentTransaksi fragmentTransaksi = new FragmentTransaksi();
+    final FragmentAkun fragmentAkun = new FragmentAkun();
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.home:
-                getSupportFragmentManager()
-                        .beginTransaction()
-                        .replace(R.id.flFragment, fragmentHome)
-                        .commit();
-                return true;
-
-            case R.id.ikan:
-                getSupportFragmentManager()
-                        .beginTransaction()
-                        .replace(R.id.flFragment, fragmentIkan)
-                        .commit();
-                return true;
-
-            case R.id.add:
-                getSupportFragmentManager()
-                        .beginTransaction()
-                        .replace(R.id.flFragment, fragmentInput)
-                        .commit();
-                return true;
-
-            case R.id.transaksi:
-                getSupportFragmentManager()
-                        .beginTransaction()
-                        .replace(R.id.flFragment, thirdFragment)
-                        .commit();
-                return true;
-
-            case R.id.akun:
-                getSupportFragmentManager()
-                        .beginTransaction()
-                        .replace(R.id.flFragment, thirdFragment)
-                        .commit();
-                return true;
+        int id = item.getItemId();
+        if (id == R.id.home){
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.flFragment, fragmentHome)
+                    .commit();
+            return true;
+        } else if (id == R.id.ikan){
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.flFragment, fragmentIkan)
+                    .commit();
+            return true;
+        } else if (id == R.id.add){
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.flFragment, fragmentInput)
+                    .commit();
+            return true;
+        } else if (id == R.id.transaksi){
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.flFragment, fragmentTransaksi)
+                    .commit();
+            return true;
+        } else if (id == R.id.akun){
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.flFragment, fragmentAkun)
+                    .commit();
+            return true;
         }
         return false;
     }

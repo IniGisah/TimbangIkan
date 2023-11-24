@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".FragmentHome">
+    tools:context=".fragmentdir.FragmentHome">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/bguser"
@@ -96,6 +96,7 @@
             />
 
         <Button
+            android:id="@+id/btsearch"
             android:layout_width="105dp"
             android:layout_height="45dp"
             android:layout_alignParentLeft="true"
@@ -103,6 +104,7 @@
             android:layout_alignParentTop="true"
             android:layout_marginTop="80dp"
             android:text="Cari"
+            android:backgroundTint="#0B247E"
             android:drawableLeft="@drawable/ic_bluetooth_black_24dp"
             android:drawableTint="@color/white"
             android:drawablePadding="-15dp"

@@ -17,14 +17,14 @@ public class Dialog {
     }
 
     @SuppressLint("InflateParams")
-    void startLoadingdialog() {
+    void startLoadingdialog(int layoutid) {
 
         // adding ALERT Dialog builder object and passing activity as parameter 
         AlertDialog.Builder builder = new AlertDialog.Builder(activity);
 
         // layoutinflater object and use activity to get layout inflater 
         LayoutInflater inflater = activity.getLayoutInflater();
-        builder.setView(inflater.inflate(R.layout.loading, null));
+        builder.setView(inflater.inflate(layoutid, null));
         builder.setCancelable(true);
 
         dialog = builder.create();

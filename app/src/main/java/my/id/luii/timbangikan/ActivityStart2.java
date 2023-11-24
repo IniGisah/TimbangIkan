@@ -1,7 +1,6 @@
 package my.id.luii.timbangikan;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.Manifest;
@@ -14,7 +13,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
@@ -28,9 +26,9 @@ import com.gun0912.tedpermission.normal.TedPermission;
 import java.util.List;
 
 import my.id.luii.timbangikan.bluetooth.BluetoothController;
-import my.id.luii.timbangikan.view.DeviceRecyclerViewAdapter;
-import my.id.luii.timbangikan.view.ListInteractionListener;
-import my.id.luii.timbangikan.view.RecyclerViewProgressEmptySupport;
+import my.id.luii.timbangikan.btviewscan.DeviceRecyclerViewAdapter;
+import my.id.luii.timbangikan.btviewscan.ListInteractionListener;
+import my.id.luii.timbangikan.btviewscan.RecyclerViewProgressEmptySupport;
 
 public class ActivityStart2 extends AppCompatActivity implements ListInteractionListener<BluetoothDevice> {
     private DeviceRecyclerViewAdapter recyclerViewAdapter;

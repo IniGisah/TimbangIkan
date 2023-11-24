@@ -109,9 +109,8 @@ public class TransactionInput extends AppCompatActivity {
         String token = accessInfoPref.getString("token", "");
         //String token = "1|GAPn3KWdwcDHNRBPPXDPUazvnTEznUgJIj8CgO8Fdb5d4469";
 
-        //TODO : get nelayan, ikan, harga data from API
         final Dialog loadingdialog = new Dialog(TransactionInput.this);
-        loadingdialog.startLoadingdialog();
+        loadingdialog.startLoadingdialog(R.layout.loading);
 
         ExecutorService executor = Executors.newSingleThreadExecutor();
         Handler handler = new Handler(Looper.getMainLooper());
@@ -299,7 +298,7 @@ public class TransactionInput extends AppCompatActivity {
                         .show();
             } else {
                 //TODO : api post to server
-                loadingdialog.startLoadingdialog();
+                loadingdialog.startLoadingdialog(R.layout.loading);
                 executor.execute(() -> {
                     try {
                         Map<String, String> headers = new HashMap<>();

@@ -33,10 +33,13 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".LandingPage"
+            android:name=".IkanInput"
             android:exported="false" />
         <activity
-            android:name=".Login"
+            android:name=".NelayanInput"
+            android:exported="false" />
+        <activity
+            android:name=".LandingPage"
             android:exported="false" />
         <activity
             android:name=".WeightInput"

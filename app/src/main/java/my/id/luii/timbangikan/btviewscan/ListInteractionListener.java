@@ -21,7 +21,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package my.id.luii.timbangikan.view;
+package my.id.luii.timbangikan.btviewscan;
 
 /**
  * Interface that defines how to handle interaction with a RecyclerView list or one of its elements.

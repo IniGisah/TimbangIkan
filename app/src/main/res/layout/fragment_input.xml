@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".FragmentInput">
+    tools:context=".fragmentdir.FragmentInput">
 
     <TextView
         android:id="@+id/timbang_ikan"
@@ -14,7 +14,7 @@
         android:layout_height="30dp"
         android:layout_centerHorizontal="true"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="26dp"
         android:layout_marginStart="30dp"
         android:text="Timbang Ikan"
         android:gravity="top"
@@ -67,7 +67,7 @@
                 android:layout_height="wrap_content"
                 app:layout_constraintStart_toStartOf="@id/inputumumbg"
                 app:layout_constraintTop_toTopOf="@id/inputumumbg"
-                android:background="@drawable/rounded_rectangle"
+                android:background="@drawable/rounded_rectangle2"
                 >
 
                 <TextView
@@ -110,7 +110,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:layout_alignParentTop="true"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginStart="25dp"
                 android:text="Pilih Nelayan"
                 android:gravity="top"
@@ -134,29 +134,36 @@
                 app:strokeWidth="2dp"
                 app:strokeColor="#E4E4E4">
 
-                <TextView
-                    android:id="@+id/pilihnelayan2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="30dp"
-                    android:layout_centerHorizontal="true"
-                    android:layout_alignParentTop="true"
-                    android:layout_marginStart="15dp"
-                    android:layout_marginTop="5dp"
-                    android:text="Klik untuk memilih nelayan"
-                    android:gravity="top"
-                    android:textSize="15sp"
-                    android:textColor="#979797"
-                    app:layout_constraintStart_toStartOf="@id/infoumumbg"
-                    app:layout_constraintTop_toBottomOf="@id/infoumum"
-                    />
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <TextView
+                        android:id="@+id/pilihnelayan2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_alignParentTop="true"
+                        android:text="Klik untuk memilih nelayan"
+                        android:layout_marginLeft="20dp"
+                        android:gravity="top"
+                        android:textSize="15sp"
+                        android:textColor="#979797"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        />
 
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/baseline_arrow_forward_24"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginStart="270dp"
-                    app:tint="#979797" />
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/baseline_arrow_forward_24"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:layout_marginEnd="20dp"
+                        app:tint="#979797" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
             </com.google.android.material.card.MaterialCardView>
 
@@ -183,7 +190,7 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginStart="21dp"
                 android:layout_marginEnd="21dp"
-                android:layout_marginBottom="25dp"
+                android:layout_marginBottom="20dp"
                 app:layout_constraintStart_toStartOf="@id/inputumumbg"
                 app:layout_constraintTop_toBottomOf="@id/pilihikan"
                 app:layout_constraintBottom_toBottomOf="@id/inputumumbg"
@@ -191,29 +198,36 @@
                 app:strokeWidth="2dp"
                 app:strokeColor="#E4E4E4">
 
-                <TextView
-                    android:id="@+id/pilihikan2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="30dp"
-                    android:layout_centerHorizontal="true"
-                    android:layout_alignParentTop="true"
-                    android:layout_marginStart="15dp"
-                    android:layout_marginTop="5dp"
-                    android:text="Klik untuk memilih jenis Ikan"
-                    android:gravity="top"
-                    android:textSize="15sp"
-                    android:textColor="#979797"
-                    app:layout_constraintStart_toStartOf="@id/infoumumbg"
-                    app:layout_constraintTop_toBottomOf="@id/infoumum"
-                    />
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <TextView
+                        android:id="@+id/pilihikan2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_alignParentTop="true"
+                        android:text="Klik untuk memilih jenis ikan"
+                        android:layout_marginLeft="20dp"
+                        android:gravity="top"
+                        android:textSize="15sp"
+                        android:textColor="#979797"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        />
 
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/baseline_arrow_forward_24"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginStart="270dp"
-                    app:tint="#979797" />
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/baseline_arrow_forward_24"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:layout_marginEnd="20dp"
+                        app:tint="#979797" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
             </com.google.android.material.card.MaterialCardView>
 
@@ -236,8 +250,17 @@
                 android:layout_height="wrap_content"
                 app:layout_constraintStart_toStartOf="@id/inputberatbg"
                 app:layout_constraintTop_toTopOf="@id/inputberatbg"
-                android:background="@drawable/rounded_rectangle"
-                >
+                android:background="@drawable/rounded_rectangle2">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_marginEnd="20dp"
+                    android:text="Connect status"
+                    android:textColor="#71C749"/>
 
                 <TextView
                     android:id="@+id/inputberat"
@@ -247,7 +270,7 @@
                     android:layout_alignParentTop="true"
                     android:layout_marginTop="10dp"
                     android:layout_marginStart="25dp"
-                    android:text="Informasi Umum"
+                    android:text="Timbang Ikan"
                     android:gravity="top"
                     android:textSize="16sp"
                     android:textColor="#053742"
@@ -265,128 +288,142 @@
                     android:layout_marginStart="25dp"
                     android:layout_marginBottom="10dp"
                     android:gravity="top"
-                    android:text="Isi data kelengkapan"
+                    android:text="Perhitungan total harga"
                     android:textColor="#053742"
                     android:textSize="15sp"
-                    app:layout_constraintBottom_toBottomOf="@id/inputberat"
+                    app:layout_constraintBottom_toBottomOf="@id/beratbg"
                     app:layout_constraintStart_toStartOf="@id/beratbg"
-                    app:layout_constraintTop_toBottomOf="@id/beratbg" />
+                    app:layout_constraintTop_toBottomOf="@id/inputberat" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <TextView
-                android:id="@+id/pilihnelayan"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_alignParentTop="true"
-                android:layout_marginTop="15dp"
-                android:layout_marginStart="25dp"
-                android:text="Pilih Nelayan"
-                android:gravity="top"
-                android:textSize="16sp"
-                android:textColor="#053742"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="@id/infoumumbg"
-                app:layout_constraintTop_toBottomOf="@id/infoumumbg"
-                />
-
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/pilihnelayanbg"
-                android:layout_width="match_parent"
-                android:layout_height="35dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginStart="21dp"
-                android:layout_marginEnd="21dp"
-                app:layout_constraintStart_toStartOf="@id/inputumumbg"
-                app:layout_constraintTop_toBottomOf="@id/pilihnelayan"
-                android:foreground="?selectableItemBackground"
-                app:strokeWidth="2dp"
-                app:strokeColor="#E4E4E4">
-
-                <TextView
-                    android:id="@+id/pilihnelayan2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="30dp"
-                    android:layout_centerHorizontal="true"
-                    android:layout_alignParentTop="true"
-                    android:layout_marginStart="15dp"
-                    android:layout_marginTop="5dp"
-                    android:text="Klik untuk memilih nelayan"
-                    android:gravity="top"
-                    android:textSize="15sp"
-                    android:textColor="#979797"
-                    app:layout_constraintStart_toStartOf="@id/infoumumbg"
-                    app:layout_constraintTop_toBottomOf="@id/infoumum"
-                    />
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/baseline_arrow_forward_24"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginStart="270dp"
-                    app:tint="#979797" />
-
-            </com.google.android.material.card.MaterialCardView>
-
-            <TextView
-                android:id="@+id/pilihikan"
+                android:id="@+id/totalberat"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:layout_alignParentTop="true"
                 android:layout_marginTop="10dp"
                 android:layout_marginStart="25dp"
-                android:text="Jenis Ikan"
+                android:text="Total Berat :"
                 android:gravity="top"
                 android:textSize="16sp"
                 android:textColor="#053742"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="@id/infoumumbg"
-                app:layout_constraintTop_toBottomOf="@id/pilihnelayanbg"
+                app:layout_constraintStart_toStartOf="@id/inputberatbg"
+                app:layout_constraintTop_toBottomOf="@id/beratbg"
+                />
+
+            <TextView
+                android:id="@+id/totalberat2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="25dp"
+                android:text="0 kg"
+                android:gravity="top"
+                android:textSize="16sp"
+                android:textColor="#053742"
+                app:layout_constraintStart_toStartOf="@id/inputberatbg"
+                app:layout_constraintTop_toBottomOf="@id/totalberat"
+                />
+
+            <TextView
+                android:id="@+id/totalharga"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="25dp"
+                android:text="Total Harga :"
+                android:gravity="top"
+                android:textSize="16sp"
+                android:textColor="#053742"
+                app:layout_constraintStart_toStartOf="@id/inputberatbg"
+                app:layout_constraintTop_toBottomOf="@id/totalberat2"
+                />
+
+            <TextView
+                android:id="@+id/totalharga2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="25dp"
+                android:text="Rp.0,-"
+                android:gravity="top"
+                android:textSize="16sp"
+                android:textColor="#053742"
+                app:layout_constraintStart_toStartOf="@id/inputberatbg"
+                app:layout_constraintTop_toBottomOf="@id/totalharga"
                 />
 
             <com.google.android.material.card.MaterialCardView
+                android:id="@+id/timbangbutton"
                 android:layout_width="match_parent"
                 android:layout_height="35dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginStart="21dp"
-                android:layout_marginEnd="21dp"
-                android:layout_marginBottom="25dp"
-                app:layout_constraintStart_toStartOf="@id/inputumumbg"
-                app:layout_constraintTop_toBottomOf="@id/pilihikan"
-                app:layout_constraintBottom_toBottomOf="@id/inputumumbg"
+                app:layout_constraintStart_toStartOf="@id/inputberatbg"
+                app:layout_constraintTop_toBottomOf="@id/totalharga2"
+                app:layout_constraintBottom_toBottomOf="@id/inputberatbg"
+                android:layout_margin="20dp"
                 android:foreground="?selectableItemBackground"
+                app:cardCornerRadius="15dp"
                 app:strokeWidth="2dp"
-                app:strokeColor="#E4E4E4">
-
-                <TextView
-                    android:id="@+id/pilihikan2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="30dp"
-                    android:layout_centerHorizontal="true"
-                    android:layout_alignParentTop="true"
-                    android:layout_marginStart="15dp"
-                    android:layout_marginTop="5dp"
-                    android:text="Klik untuk memilih jenis Ikan"
-                    android:gravity="top"
-                    android:textSize="15sp"
-                    android:textColor="#979797"
-                    app:layout_constraintStart_toStartOf="@id/infoumumbg"
-                    app:layout_constraintTop_toBottomOf="@id/infoumum"
-                    />
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/baseline_arrow_forward_24"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginStart="270dp"
-                    app:tint="#979797" />
+                app:strokeColor="#075F94">
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <TextView
+                        android:id="@+id/timbangtext"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_alignParentTop="true"
+                        android:text="Mulai Timbang"
+                        android:gravity="top"
+                        android:textSize="15sp"
+                        android:textColor="#075F94"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        />
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
             </com.google.android.material.card.MaterialCardView>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="120dp"
+            android:layout_marginEnd="120dp"
+            android:layout_marginBottom="20dp"
+            app:cardCornerRadius="10dp"
+            app:layout_constraintTop_toBottomOf="@id/inputberatbg"
+            app:layout_constraintStart_toStartOf="parent"
+            android:backgroundTint="#053742">
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:text="Simpan dan Cetak"
+                    android:textColor="@color/white"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </com.google.android.material.card.MaterialCardView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

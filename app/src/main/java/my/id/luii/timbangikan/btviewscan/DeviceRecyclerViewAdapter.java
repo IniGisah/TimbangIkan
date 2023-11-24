@@ -21,7 +21,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package my.id.luii.timbangikan.view;
+package my.id.luii.timbangikan.btviewscan;
 
 import android.bluetooth.BluetoothDevice;
 import androidx.recyclerview.widget.RecyclerView;

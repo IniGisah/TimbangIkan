@@ -24,9 +24,9 @@ import com.gun0912.tedpermission.PermissionListener;
 import java.util.List;
 
 import my.id.luii.timbangikan.bluetooth.BluetoothController;
-import my.id.luii.timbangikan.view.DeviceRecyclerViewAdapter;
-import my.id.luii.timbangikan.view.ListInteractionListener;
-import my.id.luii.timbangikan.view.RecyclerViewProgressEmptySupport;
+import my.id.luii.timbangikan.btviewscan.DeviceRecyclerViewAdapter;
+import my.id.luii.timbangikan.btviewscan.ListInteractionListener;
+import my.id.luii.timbangikan.btviewscan.RecyclerViewProgressEmptySupport;
 
 public class ActivityStart3 extends AppCompatActivity implements ListInteractionListener<BluetoothDevice> {
 
